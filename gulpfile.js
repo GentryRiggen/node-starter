@@ -9,6 +9,7 @@ gulp.task('lint', function () {
   $.util.log($.util.colors.magenta('LINTING JS FILES...'));
   return gulp.src([
     '**/*.js',
+    '!gulpfile.js',
     '!config/**/*.*',
     '!client/**/*.*',
     '!node_modules/**/*.*'

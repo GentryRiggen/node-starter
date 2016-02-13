@@ -13,7 +13,7 @@ jwtService.base64Decode = function (str) {
 };
 
 jwtService.verify = function (rawSignature, signature, secret) {
-  return signature == sign(rawSignature, secret);
+  return signature == jwtService.sign(rawSignature, secret);
 };
 
 jwtService.sign = function (str, key) {
@@ -34,7 +34,7 @@ jwtService.encode = function (payload) {
     jwtService.base64Encode(JSON.stringify(payload));
   var signature = jwtService.sign(jwt, conf.jwt.secret);
   return jwt + '.' + signature;
-}
+};
 
 jwtService.decode = function (token) {
   var segments = token.split('.');
@@ -54,7 +54,7 @@ jwtService.decode = function (token) {
     header: header,
     payload: payload
   };
-}
+};
 
 jwtService.tokenFilter = function (req) {
   var dfd = Q.defer();
@@ -82,4 +82,4 @@ jwtService.tokenFilter = function (req) {
   return dfd.promise;
 };
 
-module.export = jwtService;
+module.exports = jwtService;

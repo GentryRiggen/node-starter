@@ -11,6 +11,8 @@
   "validthis": true,
   "jasmine": true,
   "globals": {
+    "Buffer": false,
+    "process": false,
     "angular": false,
     "inject": false,
     "module": false,

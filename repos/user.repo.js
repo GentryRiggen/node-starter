@@ -2,7 +2,6 @@ var userModel = require('../models/user.model');
 var Q = require('q');
 var tableName = 'user';
 var db = require('../db');
-var util = require('../services/util.service');
 var baseRepo = require('./base.repo')(tableName, userModel);
 
 var userRepo = {};
@@ -16,7 +15,7 @@ userRepo.updateUserPassword = function (id, password) {
   function catchError(err) {
     dfd.reject(err);
   }
-  
+
   userModel.encryptPassword(password)
     .then(function (encryptedPass) {
       db(tableName).where('id', id)
@@ -36,7 +35,7 @@ userRepo.authorizeUser = function (username, password) {
   function catchError(err) {
     dfd.reject(err);
   }
-  
+
   db(tableName).select('id', 'password')
     .where('username', username).first()
     .then(function (user) {

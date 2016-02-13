@@ -1,5 +1,4 @@
 var db = require('../db');
-var conf = require('../config/conf');
 
 var repo = function (tableName, model) {
   var baseRepo = {};

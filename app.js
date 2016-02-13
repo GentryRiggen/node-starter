@@ -13,6 +13,7 @@ app.use('/api', function (req, res, next) {
   function callNext() {
     next();
   }
+
   jwt.tokenFilter(req)
     .then(callNext)
     .catch(callNext);
@@ -21,14 +22,14 @@ app.use('/api', function (req, res, next) {
 app.use('/api/auth', require('./controllers/auth.ctrl.js')());
 app.use('/api/user', require('./controllers/user.ctrl')());
 
-// If you want to serve up a client
-// if (devMode) {
-//   app.use(express.static(path.join(__dirname, 'client')));
-//   app.use(express.static(path.join(__dirname, 'client/.tmp/serve')));
-//   app.use(express.static(path.join(__dirname, 'client/src')));
-// } else {
-//   app.use(express.static(path.join(__dirname, 'client/dist')));
-// }
+// Serving up client files
+ if (devMode) {
+   app.use(express.static(path.join(__dirname, 'client')));
+   app.use(express.static(path.join(__dirname, 'client/.tmp/serve')));
+   app.use(express.static(path.join(__dirname, 'client/src')));
+ } else {
+   app.use(express.static(path.join(__dirname, 'client/dist')));
+ }
 
 // START THE APP
 app.listen(port, function () {
