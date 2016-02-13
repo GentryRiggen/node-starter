@@ -1,0 +1,44 @@
+{
+  "name": "node-starter",
+  "version": "1.0.0",
+  "description": "Node start project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GentryRiggen/node-starter.git"
+  },
+  "keywords": [
+    "Node",
+    "Express",
+    "JWT",
+    "MySQL"
+  ],
+  "author": "Gentry Riggen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GentryRiggen/node-starter/issues"
+  },
+  "homepage": "https://github.com/GentryRiggen/node-starter#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "knex": "^0.10.0-rc1",
+    "lodash": "^4.3.0",
+    "mysql": "^2.10.2",
+    "q": "^1.4.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-if": "^2.0.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-nodemon": "^2.0.6",
+    "gulp-print": "^2.0.1",
+    "gulp-util": "^3.0.7",
+    "jshint-stylish": "^2.1.0"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "init",
+  "author": "Gentry Riggen",
+  "updates": [
+    {
+      "sql": [
+        "CREATE TABLE user",
+        "(id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,",
+        "first_name VARCHAR(64),",
+        "last_name VARCHAR(64),",
+        "email VARCHAR(128),",
+        "username VARCHAR(64) NOT NULL,",
+        "password V ARCHAR(256) NOT NULL);"
+      ]
+    },
+    {
+      "sql": [
+        "ALTER TABLE user ADD CONSTRAINT unique_id UNIQUE (id);"
+      ]
+    },
+    {
+      "sql": [
+        "ALTER TABLE user ADD CONSTRAINT unique_username UNIQUE (username);"
+      ]
+    }
+  ]
+}
