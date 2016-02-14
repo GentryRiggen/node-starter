@@ -53,14 +53,10 @@ model.checkPassword = function (attemptPw, hashedPw) {
   var dfd = Q.defer();
 
   bcrypt.compare(attemptPw, hashedPw, function (err, res) {
-    if (err) {
-      dfd.reject(err);
+    if (err || !res) {
+      dfd.reject();
     } else {
-      if (res) {
-        dfd.resolve(res);
-      } else {
-        dfd.reject(res);
-      }
+      dfd.resolve(res);
     }
   });
 
