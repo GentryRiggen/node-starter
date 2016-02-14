@@ -6,8 +6,14 @@ var baseRepo = require('./base.repo')(tableName, userModel);
 
 var userRepo = {};
 
+userRepo.getById = function (id, extended) {
+  return db(tableName).where('id', id).first()
+    .then(function (item) {
+      return userModel.toJson(item, extended);
+    });
+};
+
 userRepo.getAll = baseRepo.getAll;
-userRepo.getById = baseRepo.getById;
 userRepo.createOrUpdate = baseRepo.createOrUpdate;
 
 userRepo.updateUserPassword = function (id, password) {
